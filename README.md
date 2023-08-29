@@ -1,5 +1,5 @@
 # Employee Tracker
-# click for [video]()
+# click for [video](https://cumauu73.github.io/employee-tracker/)
 
 # Description
 AS A business owner
