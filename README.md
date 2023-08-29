@@ -53,6 +53,11 @@ This application is used by answering questions through Inquirer in the user's c
 MIT
 
 # Screen Shoots
+commend show
+![alt text](./assets/command.PNG)
+data bases
+![alt text](./assets/show%20db.PNG)
+
 
 
 # contact and questions
