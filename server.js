@@ -8,6 +8,7 @@ connection.connect(err => {
     questions()
 })
 
+// Inquirer prompt and if block to select correct function to run
 const questions = () => {
     return inquirer.prompt([
         {
@@ -83,6 +84,9 @@ const questions = () => {
         })
 }
 
+// ---------------- POSSIBLE FUNCTIONS ---------------- //
+
+// function to view all employees
 viewEmployees = () => {
     connection.query(`SELECT employee.id,
                              employee.first_name,
@@ -100,6 +104,7 @@ viewEmployees = () => {
     })
 }
 
+// function to view all roles
 viewRoles = () => {
     connection.query(`SELECT * FROM role`, (err, result) => {
         if (err) throw err
@@ -108,6 +113,7 @@ viewRoles = () => {
     })
 }
 
+// function to view all departments
 viewDepartments = () => {
     connection.query(`SELECT * FROM department`, (err, result) => {
         if (err) throw err
@@ -116,6 +122,7 @@ viewDepartments = () => {
     })
 }
 
+// function to add employee
 addEmployee = () => {
     inquirer.prompt([
         {
@@ -197,6 +204,7 @@ addEmployee = () => {
         })
     }
 
+// function to add role
 addRole = () => {
         inquirer.prompt([
             {
@@ -257,6 +265,7 @@ addRole = () => {
             })
 }
 
+// function to add department
 addDepartment = () => {
     inquirer.prompt([
         {
@@ -283,6 +292,7 @@ addDepartment = () => {
         })
 }
 
+// function to update employee role
 updateEmployeeRole = () => {
     connection.query(`SELECT * FROM employee`, (err, result) => {
         if (err) throw err
@@ -333,6 +343,7 @@ updateEmployeeRole = () => {
     })
 }
 
+// function to update employee manager
 updateEmployeeManager = () => {
     connection.query(`SELECT * FROM employee`, (err, result) => {
         if (err) throw err
@@ -383,6 +394,7 @@ updateEmployeeManager = () => {
     })
 }
 
+// function to view employee by department
 viewEmployeesByDepartment = () => {
     connection.query(`SELECT employee.first_name,
                              employee.last_name,
@@ -396,6 +408,7 @@ viewEmployeesByDepartment = () => {
                       })
 }
 
+// function to view employee by manager
 viewEmployeesByManager = () => {
     connection.query(`SELECT CONCAT(manager.first_name, ' ', manager.last_name) AS manager, department.name AS department, employee.id, employee.first_name, employee.last_name, role.title FROM employee
                       LEFT JOIN employee manager ON manager.id = employee.manager_id
@@ -408,6 +421,7 @@ viewEmployeesByManager = () => {
                       })
 }
 
+// function to delete employee
 deleteEmployee = () => {
     connection.query(`SELECT * FROM employee`, (err, result) => {
         if (err) throw err
@@ -434,6 +448,7 @@ deleteEmployee = () => {
     })
 }
 
+// function to delete role
 deleteRole = () => {
     connection.query(`SELECT * FROM role`, (err, result) => {
         if (err) throw err
@@ -460,6 +475,7 @@ deleteRole = () => {
     })
 }
 
+// function to delete department
 deleteDepartment = () => {
     connection.query(`SELECT * FROM department`, (err, result) => {
         if (err) throw err
@@ -486,6 +502,7 @@ deleteDepartment = () => {
     })
 }
 
+// function to view budget
 viewBudget = () => {
     connection.query(`SELECT department_id AS id,
                              department.name AS department,
